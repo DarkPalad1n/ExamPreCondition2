@@ -1,8 +1,11 @@
 package intCalculatorGUI;
 
 /**
- * With this class's main method running, the
- * GuiCalculator will be executed.
+ * Public class GuiCalculatorRun only provides the main method
+ * to run the calculator.
+ *
+ * @author DarkPalad1n
+ * @author Simonherrl
  */
 
 public class GuiCalculatorRun {

@@ -2,16 +2,16 @@ package intCalculatorGUI;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
- * ...
+ * Public class GuiCalculator deploys the graphical layout of an
+ * integer calculator using Java Swing components.
  *
  * @author DarkPalad1n
+ * @author Simonherrl
  */
 
-public class GuiCalculator extends JFrame implements ActionListener {
+public class GuiCalculator {
 
     //----------VARIABLES----------//
 
@@ -39,16 +39,16 @@ public class GuiCalculator extends JFrame implements ActionListener {
     JButton buttonMinus = new JButton("-");
     JButton buttonMultiply = new JButton("x");
     JButton buttonDivision = new JButton("/");
-    JButton buttonModulo = new JButton("mod");
-    JButton buttonSum = new JButton("sum");
-    JButton buttonQuer = new JButton("quer");
+    JButton buttonModulo = new JButton("MOD");
+    JButton buttonSum = new JButton("SUM");
+    JButton buttonQuer = new JButton("QUER");
     JButton buttonEqual = new JButton("=");
-    JButton buttonMemory = new JButton("Memory");
+    JButton buttonMemory = new JButton("MEM");
 
     //----------CONSTRUCTOR----------//
 
     public GuiCalculator(){
-        completeCalculatorFrame();
+        completeCalculatorLayout();
 
     }
 
@@ -269,9 +269,70 @@ public class GuiCalculator extends JFrame implements ActionListener {
         calculatorFrame.add(buttonDivision);
     }
 
+    /*
+    Sets the properties of mathematical button modulo and adding it into calculatorFrame.
+     */
+    public void setButtonModuloProperties(){
+        buttonModulo.setBounds(10, 170, 60, 40);
+        buttonModulo.setFont(new Font("Arial", Font.BOLD, 10));
+        buttonModulo.setBackground(Color.GRAY);
+        calculatorFrame.add(buttonModulo);
+    }
+
+    /*
+    Sets the properties of mathematical button sum and adding it into calculatorFrame.
+     */
+    public void setButtonSumProperties(){
+        buttonSum.setBounds(80, 170, 60, 40);
+        buttonSum.setFont(new Font("Arial", Font.BOLD, 10));
+        buttonSum.setBackground(Color.GRAY);
+        calculatorFrame.add(buttonSum);
+    }
+
+    /*
+    Sets the properties of mathematical button quer and adding it into calculatorFrame.
+     */
+    public void setButtonQuerProperties(){
+        buttonQuer.setBounds(150, 170, 60, 40);
+        buttonQuer.setFont(new Font("Arial", Font.BOLD, 9));
+        buttonQuer.setBackground(Color.GRAY);
+        calculatorFrame.add(buttonQuer);
+    }
+
+    /*
+    Sets the properties of helping button memory and adding it into calculatorFrame.
+     */
+    public void setButtonMemoryProperties(){
+        buttonMemory.setBounds(150, 410, 60, 40);
+        buttonMemory.setFont(new Font("Arial", Font.BOLD, 10));
+        calculatorFrame.add(buttonMemory);
+    }
+
+    /*
+    Sets the properties of helping button clear and adding it into calculatorFrame.
+     */
+    public void setButtonClearProperties(){
+        buttonClear.setBounds(80, 110, 60, 40);
+        buttonClear.setFont(new Font("Arial", Font.BOLD, 12));
+        buttonClear.setBackground(Color.red);
+        buttonClear.setForeground(Color.white);
+        calculatorFrame.add(buttonClear);
+    }
+
+    /*
+    Sets the properties of helping button delete and adding it into calculatorFrame.
+     */
+    public void setButtonDeleteProperties(){
+        buttonDelete.setBounds(150, 110, 60, 40);
+        buttonDelete.setFont(new Font("Arial", Font.BOLD, 12));
+        buttonDelete.setBackground(Color.red);
+        buttonDelete.setForeground(Color.white);
+        calculatorFrame.add(buttonDelete);
+    }
+
     /**
      * Combines all the numbered button set-up methods in a
-     * method which is used in completeSetUp().
+     * method which is used in completeCalculatorLayout().
      */
     public void numberedButtonProperties(){
         setButtonZeroProperties();
@@ -288,7 +349,7 @@ public class GuiCalculator extends JFrame implements ActionListener {
 
     /**
      * Combines all the mathematical button set-up methods in a
-     * method which is used in completeSetUp().
+     * method which is used in completeCalculatorLayout().
      */
     public void mathematicalButtonProperties(){
         setButtonEqualProperties();
@@ -296,13 +357,26 @@ public class GuiCalculator extends JFrame implements ActionListener {
         setButtonMinusProperties();
         setButtonMultiplyProperties();
         setButtonDivisionProperties();
+        setButtonModuloProperties();
+        setButtonSumProperties();
+        setButtonQuerProperties();
+    }
+
+    /**
+     * Combines all the helping button set-up methods in a
+     * method which is used in completeCalculatorLayout().
+     */
+    public void helpingButtonProperties(){
+        setButtonMemoryProperties();
+        setButtonClearProperties();
+        setButtonDeleteProperties();
     }
 
     /**
      * Combines all the set-up methods in a sequential
      * method for constructor usage.
      */
-    public void completeCalculatorFrame(){
+    public void completeCalculatorLayout(){
         setUpGraphicalUserInterface();
         setCalculatorFrameProperties();
         setTextFieldProperties();
@@ -311,15 +385,6 @@ public class GuiCalculator extends JFrame implements ActionListener {
         createButtonGroup();
         numberedButtonProperties();
         mathematicalButtonProperties();
-    }
-
-    /**
-     * Invoked when an action occurs.
-     *
-     * @param e the event to be processed
-     */
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
+        helpingButtonProperties();
     }
 }
